@@ -12,7 +12,7 @@ require('../Controller/classes.php');?>
     <link rel="stylesheet" href="styles/classes.css">
 </head>
 <body>
-<a class="button" href="">Create new</a>
+<a class="button" href="createClass.php">Create new</a>
 <table>
   <tr>
     <th>Name</th>
@@ -22,7 +22,7 @@ require('../Controller/classes.php');?>
   </tr>
   
   <?php 
-displayClasses($classes);
+  displayClasses($classes); 
 ?>
 
 </table>

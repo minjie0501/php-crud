@@ -11,6 +11,7 @@ require('../Controller/delete.php');?>
     <title>Delete</title>
 </head>
 <body>
-    Delete
+    <?php echo $deleteMsg; ?>
+    <a href="./classes.php">Go back</a>
 </body>
 </html>
