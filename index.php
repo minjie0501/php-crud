@@ -11,7 +11,11 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <a href="/View/classes.php">Classes</a>
+=======
+    <a href="./View/classes.php">Classes</a>
+>>>>>>> shreejan
     <a href="./View/students.php">Students</a>
     <a href="./View/teachers.php">Teachers</a>
 </body>

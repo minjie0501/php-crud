@@ -72,6 +72,7 @@ class Database
         return $classes;
     }
 
+<<<<<<< HEAD
     public function deleteById($table, $id)
     {
         $sql = "delete from $table where id = $id";
@@ -106,6 +107,9 @@ class Database
         $result = $this->conn->query($sql);
         return $result;
     }
+=======
+    
+>>>>>>> shreejan
 
 
     public function insertTeacher($teacher)
