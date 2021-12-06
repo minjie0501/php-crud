@@ -12,7 +12,7 @@
 </head>
 <body>
     <a href="/View/classes.php">Classes</a>
-    <a href="/View/students.php">Students</a>
-    <a href="/View/teachers.php">Teachers</a>
+    <a href="./View/students.php">Students</a>
+    <a href="./View/teachers.php">Teachers</a>
 </body>
 </html>

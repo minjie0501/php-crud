@@ -1,0 +1,31 @@
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.button {
+  display: block;
+  width: 80px;
+  height: 10px;
+  background: #4e9caf;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 10px;
+}
+
+input[type=submit]{
+    display: block;
+    width: 80px;
+    height: 20px;
+    background: #4e9caf;
+    padding: 13px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 3px;
+}
