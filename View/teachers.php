@@ -1,14 +1,7 @@
 <?php
 include "../Model/Database.php";
 include "../Model/Teacher.php";
-
-
-$teacher = new Database();
-$teachers = $teacher->getTeachers();
-
-
-
-
+include "../Controller/teachers.php";
 ?>
 
 
@@ -30,6 +23,7 @@ $teachers = $teacher->getTeachers();
             <h1 class="page-header">
                 Teachers
             </h1>
+
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -39,46 +33,9 @@ $teachers = $teacher->getTeachers();
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <?php foreach ($teachers as $id => $value) {
-                                echo $teachers[$id]['id'] . "<br>";
-                            } ?>
-                        </td>
-                        <td>
-                            <?php foreach ($teachers as $id => $value) {
-                                echo  $teachers[$id]['name'] . "<br>";
-                            } ?>
-                        </td>
-                        <td>
-                            <?php foreach ($teachers as $id => $value) {
-                                echo  $teachers[$id]['email'] . "<br>";
-                            } ?>
-                        </td>
-                    </tr>
-
+                    <?php teacherTable($teacher); ?>
                 </tbody>
             </table>
-
-
-            <?php
-
-
-
-
-            // var_dump($teachers[0]['name']);
-
-            // while($row = mysqli_fetch_assoc($teachers)){
-            //     $name = $row['name'];
-            //     echo $name . "<br>";
-            // }
-
-
-
-            // for($i = 0; $i<= $teachers['id']; $i++){
-            //     echo $teachers[$i]['name'];
-            // }
-            ?>
         </div>
     </div>
 </body>

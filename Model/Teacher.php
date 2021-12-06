@@ -2,19 +2,31 @@
 
 class Teacher{
 
-    public $id;
-    public $name;
-    public $email;
+    private $id;
+    private $name;
+    private $email;
+    private $allStudents;
 
-    // public static function find_teacher_by_id($teacher_id){
-    //     global $conn;
+    function __construct()
+    {
+        
+    }
 
-    //     //query to find teacher by id
-    //     $result_set = $conn->query("SELECT * FROM teachers WHERE id= $teacher_id");
-    //     //fetch the data and save it 
-    //     $found_teacher = mysqli_fetch_array($result_set);
-    //     return $found_teacher;
-    // }
+    public function getId(){
+        $this->id;
+    }
+
+    public function getName(){
+        $this->name;
+    }
+
+    public function getEmail(){
+        $this->email;
+    }
+
+    public function getAllStudents(){
+        $this->allStudents;
+    }
 }
 
 ?>
