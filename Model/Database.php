@@ -41,7 +41,7 @@ class Database
     }
 
 
-    public function getTeachers($id)
+    public function getTeachers($id = null)
     {
         if ($id == null) {
             $sql = "select * from teachers";
@@ -122,18 +122,17 @@ class Database
 
     public function update($table,$id,$values){
         $columns = $this->getTableColumns($table);
+        array_shift($columns);
 
         $columnsString = "";
         for ($i=0; $i < count($columns); $i++) { 
-            $columnsString .= $columns[$i] . "=" . $values[$i];
+            $columnsString .= $columns[$i] . "='" . $values[$i] . "', ";
         }
-        
-        
+        $columnsString = substr($columnsString, 0, -2);
 
         $sql="UPDATE $table SET $columnsString WHERE id = $id";
-        var_dump($sql);
 
-        // $result = $this->mysqli->query($sql);
+        $result = $this->conn->query($sql);
     }
 
     

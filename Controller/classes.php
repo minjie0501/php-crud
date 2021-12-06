@@ -4,16 +4,16 @@ require('../Model/Database.php');
 require('../Model/Class.php');
 
 $db = new Database();
-$classes = $db->getClasses();
 
 // $class = new SchoolClass('schjoolclass', 'antwer', 3);
 // $db->insertClass($class);
 
-
-if(isset($_POST['name']) && isset($_POST['location']) && isset($_POST['teacher'])){
-    var_dump($_POST['name']);
+if(isset($_POST['name']) && isset($_POST['location']) && isset($_POST['teacherId']) && isset($_POST['id'])){
+    $values = [$_POST['name'], $_POST['location'], $_POST['teacherId']];
+    $db->update('classes',$_POST['id'],$values);
 }
 
+$classes = $db->getClasses();
 
 
 
