@@ -26,6 +26,7 @@ class Database{
             $teachers[] = array("id" => $row['id'], "name" => $row['name'],"email" => $row['email']);
         }
         return $teachers;
+        // return $result;
     }
 
     public function getClasses(){
@@ -37,6 +38,8 @@ class Database{
         }
         return $classes;
     }
+
+
 
 
 
