@@ -41,7 +41,7 @@ class Database
     }
 
 
-    public function getTeachers($id)
+    public function getTeachers($id = null)
     {
         if ($id == null) {
             $sql = "select * from teachers";

@@ -1,6 +1,4 @@
 <?php
-include "../Model/Database.php";
-include "../Model/Teacher.php";
 include "../Controller/teachers.php";
 ?>
 
@@ -23,20 +21,6 @@ include "../Controller/teachers.php";
 <body>
     <div class="container">
         <div class="col-xs-6">
-            <h1>Create</h1>
-            <form action="login_create.php" method="post">
-                <div class="form-group">
-                    <label for="Name">teacher name</label>
-                    <input type="text" name="name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="email">email</label>
-                    <input type="text" name="email" class="form-control">
-                </div>
-                <input class="btn btn-primary" type="submit" name="submit" value="CREATE">
-            </form>
-        </div>
-        <div class="col-xs-6">
             <h1 class="page-header">
                 Teachers
             </h1>
@@ -44,15 +28,17 @@ include "../Controller/teachers.php";
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <!-- <th>Id</th> -->
                         <th>Teacher Name</th>
                         <th>email</th>
+                        <th>students</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php teacherTable($teacher); ?>
                 </tbody>
             </table>
+            <a class="button btn btn-primary" href="createTeacher.php">Create new</a>
         </div>
     </div>
 </body>

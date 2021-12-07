@@ -12,6 +12,7 @@ require('../Controller/delete.php');?>
 </head>
 <body>
     <?php echo $deleteMsg; ?>
-    <a href="./classes.php">Go back</a>
+    <!-- <a href="./classes.php">Go back</a> -->
+    <a href="./teachers.php">Go back</a>
 </body>
 </html>
