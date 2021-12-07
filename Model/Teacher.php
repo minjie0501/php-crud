@@ -1,19 +1,13 @@
 <?php
 
 class Teacher{
-
-    private $id;
     private $name;
     private $email;
     private $allStudents;
 
-    function __construct()
+    function __construct($name, $email)
     {
         
-    }
-
-    public function getId(){
-        $this->id;
     }
 
     public function getName(){
