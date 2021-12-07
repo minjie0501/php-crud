@@ -72,6 +72,26 @@ class Database
         return $classes;
     }
 
+    public function getStudentsOfClass($classId){
+        $sql = "select id, name from students where class = $classId";
+        $result = $this->conn->query($sql);
+        $students = [];
+        while ($row = $result->fetch_assoc()) {
+            $students[] = array("id" => $row['id'], "name" => $row['name']);
+        }
+        return $students;
+    }
+
+    public function getStudentsOfTeacher($teacherId){
+        $sql = "select id, name from students where teacher = $teacherId";
+        $result = $this->conn->query($sql);
+        $students = [];
+        while ($row = $result->fetch_assoc()) {
+            $students[] = array("id" => $row['id'], "name" => $row['name']);
+        }
+        return $students;
+    }
+
     public function deleteById($table, $id)
     {
         $sql = "delete from $table where id = $id";
@@ -143,13 +163,3 @@ class Database
 
 
 
-
-<!-- $conn = new mysqli(getenv('DATABASE_HOST'), getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD'), getenv('DATABASE_DBNAME'));
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}else{
-    // echo "Connected successfully";
-    return $conn;
-} -->
