@@ -4,28 +4,17 @@ td {
   border: 1px solid black;
 }
 
-.button {
-  display: block;
-  width: 80px;
-  height: 10px;
-  background: #4e9caf;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  line-height: 10px;
+.container{
+  text-align: center !important;
 }
 
-input[type=submit]{
-    display: block;
-    width: 80px;
-    height: 20px;
-    background: #4e9caf;
-    padding: 13px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    line-height: 3px;
+.classes-overview{
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto; /* or margin: 0 auto 0 auto */
+  margin-top: 20px;
 }
