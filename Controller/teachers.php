@@ -1,14 +1,9 @@
 <?php
 require ("../Model/Database.php");
-require ("../Model/Teacher.php");
+
 
 $teachers = new Database();
 $teacher = $teachers->getTeachers();
-
-// if (isset($_POST['delete'])) {
-
-//     $teachers->deleteTeachers();
-// }
 
 function teacherTable($teacher)
 {
@@ -32,7 +27,7 @@ function teacherTable($teacher)
                 <form action='delete.php' method='post'>
                     <input type='hidden' name='id' value=" . $teacher[$i]['id'] . ">
                     <input type='hidden' name='name' value=" . $teacher[$i]['name'] . ">
-                    <input type='hidden' name='table' value='teacher'>
+                    <input type='hidden' name='table' value='teachers'>
                     <input class='btn btn-primary' type='submit' name='submit' value='Delete'>
                 </form>
             </td>";
@@ -40,5 +35,3 @@ function teacherTable($teacher)
         
     }
 }
-
-
