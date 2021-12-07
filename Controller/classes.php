@@ -3,16 +3,30 @@
 require('../Model/Database.php');
 require('../Model/Class.php');
 
+session_start();
+
 $db = new Database();
-$classes = $db->getClasses();
-
-// $class = new SchoolClass('schjoolclass', 'antwer', 3);
-// $db->insertClass($class);
 
 
-if(isset($_POST['name']) && isset($_POST['location']) && isset($_POST['teacher'])){
-    var_dump($_POST['name']);
+if (isset($_SESSION['action'])) {
+    if ($_SESSION['action'] == 'update') {
+        if (isset($_POST['name']) && isset($_POST['location']) && isset($_POST['teachers']) && isset($_POST['id'])) {
+            $values = [$_POST['name'], $_POST['location'], $_POST['teachers']];
+            $db->update('classes', $_POST['id'], $values);
+            $classes = $db->getClasses();
+        }
+        unset($_SESSION['action']);
+    } else if ($_SESSION['action'] == 'create') {
+        if (isset($_POST['name']) && isset($_POST['location']) && isset($_POST['teachers']) && isset($_POST['id'])) {
+            $class = new SchoolClass($_POST['name'], $_POST['location'], $_POST['teachers']);
+            $db->insertClass($class);
+        }
+        unset($_SESSION['action']);
+    }
 }
+
+
+$classes = $db->getClasses();
 
 
 
@@ -23,7 +37,7 @@ function displayClasses($classes)
 
         echo "
         <tr>
-            <td>" . $classes[$i]['name'] . "</td>
+            <td><a href='/View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
             <td>" . $classes[$i]['location'] . "</td>
             <td><a href='/View/classes.php'>" . $classes[$i]['teacherName'] . "</a></td> 
             <td>
