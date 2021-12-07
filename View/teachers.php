@@ -1,5 +1,5 @@
 <?php
-require ("../Model/Teacher.php");
+require("../Model/Teacher.php");
 include "../Controller/teachers.php";
 ?>
 
@@ -18,6 +18,7 @@ include "../Controller/teachers.php";
 </head>
 
 <body>
+    <?php include('includes/header.php'); ?>
     <div class="container">
         <div class="col-xs-6">
             <h1 class="page-header">

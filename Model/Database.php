@@ -71,12 +71,6 @@ class Database
         }
         return $classes;
     }
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     public function getStudentsOfClass($classId){
         $sql = "select id, name from students where class = $classId";
         $result = $this->conn->query($sql);
@@ -96,9 +90,7 @@ class Database
         }
         return $students;
     }
-
->>>>>>> 4de45e81d021de5415910d5bca26beea348e8978
->>>>>>> main
+    
     public function deleteById($table, $id)
     {
         $sql = "delete from $table where id = $id";

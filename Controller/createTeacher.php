@@ -9,13 +9,13 @@ $emailValue ="";
 if(isset($_GET['id'])){
     $db = new Database();
     $teacherInfo = $db->getTeachers($_GET['id'])[0];
-
-    var_dump($db->getTableColumns('students'));
+    $teacherId = $teacherInfo['id'];
     $nameValue = $teacherInfo['name'];
-    $locationValue = $teacherInfo['email'];
+    $emailValue = $teacherInfo['email'];
     $submitValue = 'Update';
+    $_SESSION['action'] = "update";
 }else{
-    echo('create');
+    $_SESSION['action'] = "create";
 }
 
 ?>
