@@ -155,6 +155,12 @@ class Database
         $result = $this->conn->query($sql);
     }
 
+    public function updateDeletedIds($table, $column,  $id){
+        $sql = "UPDATE $table SET $column = 0 WHERE $column = $id";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
+
     
 }
 

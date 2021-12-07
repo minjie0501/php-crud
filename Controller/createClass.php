@@ -11,9 +11,6 @@ $classId = "";
 $teacherId = "";
 
 
-
-
-
 if(isset($_GET['id'])){ //update class
     $db = new Database();
     $classInfo = $db->getClasses($_GET['id'])[0];

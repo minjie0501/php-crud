@@ -19,7 +19,6 @@ require_once ('..\Controller\students.php');
 </head>
 <body>
 <h3 style="text-align:center;margin-top:10px;">Students Record</h3>
-
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
           <div class="modal-body">
           <div class="form-row">
@@ -43,7 +42,6 @@ require_once ('..\Controller\students.php');
               <input type="text" class="form-control" id="teacher" name="teacher" aria-describedby="emailHelp" Required>
             </div> 
           </div>
-          
           <div class="form-row" style="text-align:center;display:block;margin:auto;">
            <button type="submit" class="btn btn-primary" name="saveData">Submit</button>
           </div>
