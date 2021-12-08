@@ -14,10 +14,6 @@ if(isset($_POST['id'])  && isset($_POST['table'])){
     $db = new Database($conn);
     $db->deleteById($_POST['table'],$_POST['id'] );
 
-<<<<<<< HEAD
-    // $deleteMsg = "You have successfully delete the " . $_POST['name'] . " class.";
-    $deleteMsg = "You have successfully delete the " . $_POST['name'] . " table.";
-=======
     $deleteMsg = "You have successfully deleted the " . $_POST['name'] . " class.";
     if($_POST['table'] == 'classes'){
         $previousPageUrl="./classes.php";
@@ -32,5 +28,4 @@ if(isset($_POST['id'])  && isset($_POST['table'])){
     if($_POST['table'] == 'students') $previousPageUrl="./students.php";
 
 
->>>>>>> main
 }
