@@ -19,7 +19,6 @@ require('../Controller/delete.php');?>
 <body>
 <?php include ('includes/header.php');?>
     <?php echo $deleteMsg; ?>
-    <!-- <a href="./classes.php">Go back</a> -->
-    <a href="./teachers.php">Go back</a>
+    <a href="./classes.php">Go back</a>
 </body>
 </html>

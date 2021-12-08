@@ -47,10 +47,3 @@ function teacherTable($teacher)
         echo "</tr>";
     }
 }
-
-function showTeacherStudents($teacher)
-{
-    for ($i = 0; $i < count($teacher); $i++) {
-        $teacherId = $teacher[$i]['id'];
-    }
-}
