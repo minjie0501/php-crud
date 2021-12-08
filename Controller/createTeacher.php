@@ -1,6 +1,13 @@
 <?php 
 require('../Model/Database.php');
+
+require('../Model/Connection.php');
+require('../Model/Env.php');
+
 session_start();
+
+$connection = new Connection;
+$conn = $connection->connectDB();
 
 $submitValue = "Create";
 $nameValue = "";
@@ -9,7 +16,7 @@ $teacherId ="";
 
 
 if(isset($_GET['id'])){
-    $teachers = new Database();
+    $teachers = new Database($conn);
     $teacherInfo = $teachers->getTeachers($_GET['id'])[0];
     $teacherId = $teacherInfo['id'];
     $nameValue = $teacherInfo['name'];

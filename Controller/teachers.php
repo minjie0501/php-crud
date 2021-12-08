@@ -1,9 +1,15 @@
 <?php
 require("../Model/Database.php");
 require("../Model/Teacher.php");
+require('../Model/Connection.php');
+require('../Model/Env.php');
+
 session_start();
 
-$teachers = new Database();
+$connection = new Connection;
+$conn = $connection->connectDB();
+
+$teachers = new Database($conn);
 if (isset($_SESSION['action'])) {
     if ($_SESSION['action'] == 'update') {
         if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['id'])) {

@@ -42,7 +42,6 @@ function displayClasses($classes)
         echo "
         <tr>
             <td><a href='/View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
-<<<<<<< HEAD
             <td>" . $classes[$i]['location'] . "</td>
             <td><a href='/View/classes.php'>" . $classes[$i]['teacherName'] . "</a></td> 
             <td>
@@ -53,11 +52,6 @@ function displayClasses($classes)
             </select> 
             </td>
             <td><a class='button' href='/View/createClass.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
-=======
-            <td>" . $classes[$i]['location'] . "</td>".
-            ($classes[$i]['teacherName'] == null ? "<td>None</td>" :"<td><a href='/View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>").
-            "<td><a class='btn btn-primary' href='/View/classForm.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
->>>>>>> main
             <td>
                 <form action='delete.php' method='post'>
                 <input type='hidden' name='id' value=" . $classes[$i]['id'] . ">
