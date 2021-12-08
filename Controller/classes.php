@@ -1,11 +1,11 @@
 <?php
+session_start();
 
 require('../Model/Database.php');
 require('../Model/Class.php');
 require('../Model/Connection.php');
 require('../Model/Env.php');
 
-session_start();
 
 $connection = new Connection;
 $conn = $connection->connectDB();
