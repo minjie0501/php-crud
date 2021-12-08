@@ -1,5 +1,6 @@
 <?php 
 require_once ('..\Model\Database.php');
+
 $db= new Database();
 
 class operations extends Database{

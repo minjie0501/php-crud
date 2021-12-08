@@ -37,7 +37,10 @@ function teacherTable($teacher)
         $teacherEmail = $teacher[$i]['email'];
         echo "<tr>";
         // echo"<td>{$teacherId}</td>";
-        echo "<td>{$teacherName}</td>";
+        echo "<td><a href='../View/details.php?table=teachers&id=" . $teacher[$i]['id']."'>" . $teacherName . "</a></td>";
+
+        // <td><a href='../View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>
+
         echo "<td>{$teacherEmail}</td>";
         echo "<td>
                 <a class='button btn btn-info' href='../View/createTeacher.php?id=" . $teacher[$i]['id'] . "'>Edit</a>
