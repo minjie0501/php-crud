@@ -39,9 +39,9 @@ function displayClasses($classes)
     for ($i = 0; $i < count($classes); $i++) {
         echo "
         <tr>
-            <td><a href='/View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
+            <td><a href='../View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
             <td>" . $classes[$i]['location'] . "</td>".
-            ($classes[$i]['teacherName'] == null ? "<td>None</td>" :"<td><a href='/View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>").
+            ($classes[$i]['teacherName'] == null ? "<td>None</td>" :"<td><a href='../View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>").
             "<td><a class='btn btn-primary' href='/View/classForm.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
             <td>
                 <form action='delete.php' method='post'>
@@ -52,6 +52,7 @@ function displayClasses($classes)
                 </form>
             </td>
         </tr>";
+
 
     }
 }

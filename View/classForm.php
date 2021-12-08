@@ -22,7 +22,7 @@ require('../Controller/classForm.php');
     <?php include('includes/header.php'); ?>
 
     <div class="container">
-
+    <h1>Create a class</h1>
         <form action="classes.php" method="POST">
             <input type='hidden' name='id' value=<?php echo $classId; ?>>
             <input type='hidden' name='teacherId' value=<?php echo $teacherId; ?>>
