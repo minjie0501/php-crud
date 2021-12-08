@@ -11,7 +11,7 @@ $connection = new Connection;
 $conn = $connection->connectDB();
 
 $db = new Database($conn);
-
+//
 
 if (isset($_SESSION['action'])) {
     if ($_SESSION['action'] == 'update') {
