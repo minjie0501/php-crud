@@ -22,22 +22,30 @@ require('../Controller/classes.php'); ?>
 
 <body>
   <?php include('includes/header.php'); ?>
-  <div class="classes-overview">
-    <h1>Classes</h1>
-    <a class="btn btn-primary" href="classForm.php">Create new</a><br>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Teacher</th>
-      </tr>
+  <div class="container">
+        <div class="col-xs-6">
+            <h1 class="page-header">
+                Classes
+            </h1>
 
-        <?php
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Teacher Name</th>
+                        <th>email</th>
+                        <th>Teacher</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
         displayClasses($classes);
         ?>
+                </tbody>
+            </table>
+            <a class="button btn btn-primary" href="classForm.php">Create new</a>
+        </div>
+    </div>
 
-    </table>
-  </div>
 
 </body>
 
