@@ -1,7 +1,6 @@
 <?php 
 session_start();
 require('../Model/Database.php');
-
 require('../Model/Connection.php');
 require('../Model/Env.php');
 

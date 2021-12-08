@@ -31,7 +31,7 @@ if ((isset($_GET['table']) && $_GET['table'] == 'classes') && (isset($_GET['id']
         <h1>" . $class['name'] . "</h1>
         <h3>Location: " . $class['location'] . "</h3>
         <h3>Assigned Teacher:" . 
-        ($class['teacherName']== null ? " None" : "<a href='details.php?table=teachers&id=" . $class['teacherId'] . "'> " . $class['teacherName'] . "</a><br>")."</h3>
+        ($class['teacherName']== null ? " None" : "<a href='./details.php?table=teachers&id=" . $class['teacherId'] . "'> " . $class['teacherName'] . "</a><br>")."</h3>
         <h4>Students: </h4>
         <ul>";
         if(count($students)>0){
