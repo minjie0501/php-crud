@@ -1,5 +1,5 @@
 <?php
-require('../Controller/createClass.php');
+require('../Controller/classForm.php');
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ require('../Controller/createClass.php');
                     <div class="form-group col-md-6">
                         <label for="teachers">Teacher: </label>
                         <select name="teachers" id="teachers">
-                            <?php teacherOptions($teacherId); ?>
+                            <?php teacherOptions($teacherId,$conn); ?>
                         </select>
                     </div>
                 </div>

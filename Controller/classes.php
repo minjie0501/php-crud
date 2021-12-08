@@ -2,10 +2,15 @@
 
 require('../Model/Database.php');
 require('../Model/Class.php');
+require('../Model/Connection.php');
+require('../Model/Env.php');
 
 session_start();
 
-$db = new Database();
+$connection = new Connection;
+$conn = $connection->connectDB();
+
+$db = new Database($conn);
 
 
 if (isset($_SESSION['action'])) {
@@ -34,10 +39,10 @@ $classes = $db->getClasses();
 function displayClasses($classes)
 {
     for ($i = 0; $i < count($classes); $i++) {
-
         echo "
         <tr>
             <td><a href='/View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
+<<<<<<< HEAD
             <td>" . $classes[$i]['location'] . "</td>
             <td><a href='/View/classes.php'>" . $classes[$i]['teacherName'] . "</a></td> 
             <td>
@@ -48,6 +53,11 @@ function displayClasses($classes)
             </select> 
             </td>
             <td><a class='button' href='/View/createClass.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
+=======
+            <td>" . $classes[$i]['location'] . "</td>".
+            ($classes[$i]['teacherName'] == null ? "<td>None</td>" :"<td><a href='/View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>").
+            "<td><a class='btn btn-primary' href='/View/classForm.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
+>>>>>>> main
             <td>
                 <form action='delete.php' method='post'>
                 <input type='hidden' name='id' value=" . $classes[$i]['id'] . ">

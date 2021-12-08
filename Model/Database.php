@@ -4,9 +4,10 @@ class Database
 {
     private $conn;
 
-    public function __construct()
+    public function __construct($conn)
     {
-        $this->conn = new mysqli("localhost", "root", "", "school");
+        // $this->conn = new mysqli("localhost", "root", "", "school");
+        $this->conn = $conn;
     }
 
 
@@ -151,6 +152,12 @@ class Database
         $sql="UPDATE $table SET $columnsString WHERE id = $id";
 
         $result = $this->conn->query($sql);
+    }
+
+    public function updateDeletedIds($table, $column,  $id){
+        $sql = "UPDATE $table SET $column = 0 WHERE $column = $id";
+        $result = $this->conn->query($sql);
+        return $result;
     }
 
     

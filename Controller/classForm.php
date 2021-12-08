@@ -1,7 +1,12 @@
 <?php 
 require('../Model/Database.php');
+require('../Model/Connection.php');
+require('../Model/Env.php');
+
 session_start();
 
+$connection = new Connection;
+$conn = $connection->connectDB();
 
 $submitValue = "Create";
 $nameValue = "";
@@ -11,11 +16,8 @@ $classId = "";
 $teacherId = "";
 
 
-
-
-
 if(isset($_GET['id'])){ //update class
-    $db = new Database();
+    $db = new Database($conn);
     $classInfo = $db->getClasses($_GET['id'])[0];
     $classId=$classInfo['id'];
     $nameValue = $classInfo['name'];
@@ -28,8 +30,8 @@ if(isset($_GET['id'])){ //update class
     $_SESSION['action'] = "create";
 }
 
-function teacherOptions($teacherId){
-    $db = new Database();
+function teacherOptions($teacherId, $conn){
+    $db = new Database($conn);
     $teachers = $db->getTeachers();
     for ($i=0; $i <count($teachers ) ; $i++) {
         if($teacherId == $teachers[$i]['id']){

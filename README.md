@@ -2,7 +2,7 @@
 
 ## Date:6-12-2021
 ## Three days challenge
-## Group Assingment:
+## Group Assignment:
 - Min Jie.
 - Shreejan.
 - Neha.
