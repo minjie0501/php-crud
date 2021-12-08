@@ -48,7 +48,7 @@ function displayClasses($classes)
                 <input type='hidden' name='id' value=" . $classes[$i]['id'] . ">
                 <input type='hidden' name='name' value=" . $classes[$i]['name'] . ">
                 <input type='hidden' name='table' value='classes'>
-                <input class='btn btn-primary' type='submit' name='submit' value='Delete'>
+                <input class='btn btn-danger' type='submit' name='submit' value='Delete'>
                 </form>
             </td>
         </tr>";
