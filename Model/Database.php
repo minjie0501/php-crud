@@ -4,9 +4,10 @@ class Database
 {
     private $conn;
 
-    public function __construct()
+    public function __construct($conn)
     {
-        $this->conn = new mysqli("localhost", "root", "", "school");
+        // $this->conn = new mysqli("localhost", "root", "", "school");
+        $this->conn = $conn;
     }
 
 

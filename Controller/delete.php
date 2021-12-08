@@ -1,11 +1,17 @@
 <?php 
 require('../Model/Database.php');
+require('../Model/Connection.php');
+require('../Model/Env.php');
+
+
+$connection = new Connection;
+$conn = $connection->connectDB();
 
 $deleteMsg="";
 $previousPageUrl="../";
 
 if(isset($_POST['id'])  && isset($_POST['table'])){
-    $db = new Database();
+    $db = new Database($conn);
     $db->deleteById($_POST['table'],$_POST['id'] );
 
     $deleteMsg = "You have successfully deleted the " . $_POST['name'] . " class.";

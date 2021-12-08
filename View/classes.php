@@ -24,7 +24,7 @@ require('../Controller/classes.php'); ?>
   <?php include('includes/header.php'); ?>
   <div class="classes-overview">
     <h1>Classes</h1>
-    <a class="btn btn-primary" href="createClass.php">Create new</a><br>
+    <a class="btn btn-primary" href="classForm.php">Create new</a><br>
     <table>
       <tr>
         <th>Name</th>

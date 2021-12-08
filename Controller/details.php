@@ -1,7 +1,13 @@
 <?php
 
 require('../Model/Database.php');
-$db = new Database();
+require('../Model/Connection.php');
+require('../Model/Env.php');
+
+
+$connection = new Connection;
+$conn = $connection->connectDB();
+$db = new Database($conn);
 
 function deleteBtn($table, $name){
     echo "
@@ -68,8 +74,12 @@ else if((isset($_GET['table']) && $_GET['table'] == 'teachers') && (isset($_GET[
         <h3>E-mail: " . $teacher['email'] . "</h3>
         <h4>Students: </h4>
         <ul>";
-        for ($i = 0; $i < count($students); $i++) {
-            echo "<a href='details.php?table=students&id=" . $students[$i]['id'] . "'> " . $students[$i]['name'] . "</a><br>";
+        if(count($students)>0){
+            for ($i = 0; $i < count($students); $i++) {
+                echo "<a href='details.php?table=students&id=" . $students[$i]['id'] . "'> " . $students[$i]['name'] . "</a><br>";
+            }
+        }else{
+            echo "No students available.";
         }
         echo "</ul>";
         deleteBtn( $teacher, 'teachers');

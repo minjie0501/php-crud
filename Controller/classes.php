@@ -2,10 +2,15 @@
 
 require('../Model/Database.php');
 require('../Model/Class.php');
+require('../Model/Connection.php');
+require('../Model/Env.php');
 
 session_start();
 
-$db = new Database();
+$connection = new Connection;
+$conn = $connection->connectDB();
+
+$db = new Database($conn);
 
 
 if (isset($_SESSION['action'])) {
@@ -37,7 +42,7 @@ function displayClasses($classes)
             <td><a href='/View/details.php?table=classes&id=" . $classes[$i]['id'] . "'>" . $classes[$i]['name'] . "</a></td>
             <td>" . $classes[$i]['location'] . "</td>".
             ($classes[$i]['teacherName'] == null ? "<td>None</td>" :"<td><a href='/View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>").
-            "<td><a class='btn btn-primary' href='/View/createClass.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
+            "<td><a class='btn btn-primary' href='/View/classForm.php?id=" . $classes[$i]['id'] . "'>Edit</a></td>
             <td>
                 <form action='delete.php' method='post'>
                 <input type='hidden' name='id' value=" . $classes[$i]['id'] . ">
