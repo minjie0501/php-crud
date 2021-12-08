@@ -30,7 +30,6 @@ include "../Controller/teachers.php";
                         <!-- <th>Id</th> -->
                         <th>Teacher Name</th>
                         <th>email</th>
-                        <!-- <th>students</th> -->
                     </tr>
                 </thead>
                 <tbody>
