@@ -15,8 +15,8 @@ public function __construct($name,$email,$class,$teacher){
 public function getName(){
 return $this->name;
 }
-public function getMail(){
-    return $this->mail;    
+public function getEmail(){
+    return $this->email;    
 }
 public function getClass(){
     return $this->class;   
@@ -25,6 +25,3 @@ public function getTeacher(){
     return $this->teacher;    
 }
 }
-
-$student= new Student("neha","neha@gmail.com","1","1");
-// echo $student->getName();

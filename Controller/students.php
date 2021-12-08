@@ -1,43 +1,57 @@
-<?php 
-require_once ('..\Model\Database.php');
-$db= new Database();
+<?php
 
-class operations extends Database{
+session_start();
+require('../Model/Database.php');
+require('../Model/Student.php');
 
-public function store(){
-    global $db;
 
-if (isset($_POST['saveData'])) {
-  
-   $name=$db->check($_POST['name']);
-   $email=$db->check($_POST['email']);
-   $className=$db->check($_POST['className']);
-   $teacher=$db->check($_POST['teacher']);
-  
-   if($this->insert($name,$email,$className,$teacher)){
-       
-    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-    <strong>Success!</strong> Your record has been inserted successfully
-  </div>";
-   }
-
+$db = new Database();
+require_once("../Model/Student.php");
+// var_dump($_POST);
+// require("../Model/Database.php");
+if (isset($_SESSION['action'])) {
+    if ($_SESSION['action'] == 'update') {
+        if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['teacher']) && isset($_POST['className'])) {
+            $values = [$_POST['name'], $_POST['email'],$_POST['className'], $_POST['teacher']];
+            $db->update('students', $_POST['studentId'], $values);
+            $students = $db->getStudents();
+        }
+        unset($_SESSION['action']);
+    } else if ($_SESSION['action'] == 'create') {
+        if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['teacher']) && isset($_POST['className'])){
+            $student = new Student($_POST['name'], $_POST['email'],$_POST['className'], $_POST['teacher']);
+            $db->insertStudent($student);
+        }
+        unset($_SESSION['action']);
     }
-  }
-
-  public function insert($a,$b,$c,$d){
-      global $db;
-      $sql1 = "INSERT INTO `students` (`id`,`name`,`email`,`class`,`teacher`)VALUES ('$a', '$b','$c','$d')";
-      $result1 = mysqli_query($db, $sql1); 
-
-      if($result1){
-          return true;
-      }
-      else{
-          return false;
-      }
-   
-  }
 }
 
 
+$students = $db->getStudents();
+// var_dump($students);
+function displayStudents($students){
+    $id=0;
+    for ($i=0; $i <count($students) ; $i++) { 
+        $id= $id + 1;
+        echo "<tr>
+              <th scope='row'>" . $id. "</th>
+              <td>" . $students[$i]["name"]. "</td>
+              <td>" . $students[$i]["email"]. "</td>
+              <td>" . $students[$i]["class"]. "</td>
+              <td>" . $students[$i]["teacherName"]. "</td>
+             <td><a href='../View/studentForm.php?id=" . $students[$i]['id'] . "' class=' edit btn btn-primary'  id='"
+             .$students[$i]['id']. "'>Edit </a> 
+              </td>
+             <td>
+    <form action='delete.php' method='post'>
+    <input type='hidden' name='id' value=" . $students[$i]['id'] . ">
+    <input type='hidden' name='name' value=" . $students[$i]['name'] . ">
+    <input type='hidden' name='table' value='students'>
+    <input class='btn btn-primary' type='submit' name='submit' value='Delete'>
+    </form>
+</td>
+              </tr>";
+    } 
+    
+}
 ?>

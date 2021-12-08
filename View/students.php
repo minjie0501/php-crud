@@ -1,10 +1,6 @@
 <?php
-require_once ('..\Model\Database.php');
-require_once ('..\Model\Student.php');
-require_once ('..\Controller\students.php');
-// insert record into student table
-?>
 
+require('../Controller/students.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,42 +11,11 @@ require_once ('..\Controller\students.php');
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    
     <title>Document</title>
 </head>
 <body>
-<h3 style="text-align:center;margin-top:10px;">Students Record</h3>
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-          <div class="modal-body">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="email">Email Address</label>
-              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
-            </div> 
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="className">Your Class Name</label>
-              <input type="text" class="form-control" id="className" name="className" aria-describedby="emailHelp" required
-              >
-            </div> 
-            <div class="form-group col-md-6">
-              <label for="teacher">Teacher</label>
-              <input type="text" class="form-control" id="teacher" name="teacher" aria-describedby="emailHelp" Required>
-            </div> 
-          </div>
-          <div class="form-row" style="text-align:center;display:block;margin:auto;">
-           <button type="submit" class="btn btn-primary" name="saveData">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-<hr>
-
+    <h2 style="text-align:center;">Students-Records</h2>
 <div class="container">   
 <table id="myTable" class="table my-4" >
   <thead>
@@ -65,16 +30,23 @@ require_once ('..\Controller\students.php');
   </thead>
   <tbody>
   <?PHP
-   $database=new Database();
-   echo $database->getStudents();
-//    $op= new operations();
-//    echo $op->store();
+ 
+  // $db= new Database();
+  displayStudents($students);
+  // $db->showStudent();
+  
+
   ?> 
   </tbody>
 </table>
-</div>    
+</div> 
 
-   
+   <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="form-row" style="text-align:center;display:block;margin:auto;">
+                            <a href="../View/studentForm.php" class="btn btn-primary" >CREATE</a>
+                        </div>
+                    </div>
+                </div>
 </body>
 </html>
-

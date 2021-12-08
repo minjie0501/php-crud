@@ -2,7 +2,7 @@
 
 class Database
 {
-    private $conn;
+    public $conn;
 
     public function __construct($conn)
     {
@@ -22,6 +22,8 @@ class Database
         return $columns;
     }
 
+
+  
     public function getStudents($id = null)
     {
         if ($id == null) {
@@ -35,7 +37,7 @@ class Database
         $result = $this->conn->query($sql);
         $students = [];
         while ($row = $result->fetch_assoc()) {
-            $students[] = array("id" => $row['id'], "name" => $row['name'], "email" => $row['email'], "class" => $row['class'], "teacherId" => $row['teacher'], "teacherName" => $row['tname']);
+            $students[] = array("id" => $row['id'], "name" => $row['name'], "email" => $row['email'], "class" => $row['class'], "teacherId" => $row['teacher'], "teacherName" => $row['tname'], );
         }
 
         return $students;
@@ -143,6 +145,7 @@ class Database
         $columns = $this->getTableColumns($table);
         array_shift($columns);
 
+        // var_dump($values);
         $columnsString = "";
         for ($i=0; $i < count($columns); $i++) { 
             $columnsString .= $columns[$i] . "='" . $values[$i] . "', ";
@@ -159,8 +162,6 @@ class Database
         $result = $this->conn->query($sql);
         return $result;
     }
-
-    
 }
 
 ?>
