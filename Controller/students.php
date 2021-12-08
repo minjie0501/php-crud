@@ -40,10 +40,10 @@ function displayStudents($students){
         $id= $id + 1;
         echo "<tr>
               <th scope='row'>" . $id. "</th>
-              <td>" . $students[$i]["name"]. "</td>
+              <td><a href='../View/details.php?table=students&id=" . $students[$i]['id']."'>" .$students[$i]["name"]. "</a></td>
               <td>" . $students[$i]["email"]. "</td>
               <td>" . $students[$i]["class"]. "</td>
-              <td>" . $students[$i]["teacherName"]. "</td>
+              <td><a href='../View/details.php?table=students&id=" . $students[$i]['id']."'>" .$students[$i]["teacherName"] . "</a></td>
              <td><a href='../View/studentForm.php?id=" . $students[$i]['id'] . "' class=' edit btn btn-primary'  id='"
              .$students[$i]['id']. "'>Edit </a> 
               </td>

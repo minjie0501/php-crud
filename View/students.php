@@ -18,7 +18,7 @@ require('../Controller/students.php'); ?>
 <body>
   <?php include('includes/header.php'); ?>
 
-  <h2 style="text-align:center;">Students-Records</h2>
+  <h2 style="text-align:center;">Students</h2>
   <div class="container">
     <table id="myTable" class="table my-4">
       <thead>
@@ -26,19 +26,14 @@ require('../Controller/students.php'); ?>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Email Address</th>
-          <th scope="col"><a href=" ">Class</a></th>
-          <th scope="col"><a href=" ">Teacher</a></th>
+          <th scope="col">Class</th>
+          <th scope="col">Teacher</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <?PHP
-
-        // $db= new Database();
         displayStudents($students);
-        // $db->showStudent();
-
-
         ?>
       </tbody>
     </table>
@@ -47,7 +42,7 @@ require('../Controller/students.php'); ?>
   <div class="form-row">
     <div class="form-group col-md-6">
       <div class="form-row" style="text-align:center;display:block;margin:auto;">
-        <a href="../View/studentForm.php" class="btn btn-primary">CREATE</a>
+        <a href="../View/studentForm.php" class="btn btn-primary" >CREATE</a>
       </div>
     </div>
   </div>
