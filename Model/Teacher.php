@@ -5,23 +5,23 @@ class Teacher{
     private $email;
     private $allStudents;
 
-    function __construct($name, $email, $allStudents)
+    function __construct($name, $email)
     {
         $this->name = $name;
         $this->email= $email;
-        $this->allStudents = $allStudents;
+        // $this->allStudents = $allStudents;
     }
 
     public function getName(){
-        $this->name;
+        return $this->name;
     }
 
     public function getEmail(){
-        $this->email;
+        return $this->email;
     }
 
     public function getAllStudents(){
-        $this->allStudents;
+        return $this->allStudents;
     }
 }
 

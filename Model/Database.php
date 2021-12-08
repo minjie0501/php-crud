@@ -71,10 +71,6 @@ class Database
         }
         return $classes;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     public function getStudentsOfClass($classId){
         $sql = "select id, name from students where class = $classId";
         $result = $this->conn->query($sql);
@@ -94,12 +90,7 @@ class Database
         }
         return $students;
     }
-<<<<<<< HEAD
     
-=======
-
-
->>>>>>> main
     public function deleteById($table, $id)
     {
         $sql = "delete from $table where id = $id";
@@ -134,10 +125,6 @@ class Database
         $result = $this->conn->query($sql);
         return $result;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 
     public function insertTeacher($teacher)
     {
@@ -146,7 +133,7 @@ class Database
 
         $sql = "INSERT INTO teachers (name, email)
         VALUES ('$name', '$email');";
-
+        // var_dump($sql);
         $result = $this->conn->query($sql);
         return $result;
     }
