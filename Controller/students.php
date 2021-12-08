@@ -3,10 +3,15 @@
 session_start();
 require('../Model/Database.php');
 require('../Model/Student.php');
+require('../Model/Connection.php');
+require('../Model/Env.php');
 
 
-$db = new Database();
-require_once("../Model/Student.php");
+$connection = new Connection;
+$conn = $connection->connectDB();
+
+
+$db = new Database($conn );
 // var_dump($_POST);
 // require("../Model/Database.php");
 if (isset($_SESSION['action'])) {

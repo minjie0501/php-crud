@@ -28,7 +28,7 @@
         <form action="./View/classes.php">
             <input class="a-main" type="submit" value="Classes" />
         </form>
-        <form action="./View/students-record.php">
+        <form action="./View/students.php">
             <input class="a-main" type="submit" value="Students" />
         </form>
         <form action="./View/teachers.php">
