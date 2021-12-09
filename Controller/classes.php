@@ -8,8 +8,8 @@ require('../Model/Env.php');
 
 
 $connection = new Connection;
+// $test = $connection->createDb();
 $conn = $connection->connectDB();
-
 $db = new Database($conn);
 //
 
@@ -30,8 +30,13 @@ if (isset($_SESSION['action'])) {
     }
 }
 
+if(isset($_POST['search']) && $_POST['search']!=null){
+    $classes = $db->getClasses(null, $_POST['search']);
+}else{
+    $classes = $db->getClasses();
+}
 
-$classes = $db->getClasses();
+
 
 
 function displayClasses($classes)

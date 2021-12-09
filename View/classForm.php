@@ -31,14 +31,14 @@ require('../Controller/classForm.php');
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required value=<?php echo $nameValue; ?>>
+                            <input type="text" class="form-control" id="name" name="name" required value="<?php echo $nameValue; ?>">
                         </div>
                     </div>
     
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" name="location" required value=<?php echo $locationValue; ?>>
+                            <input type="text" class="form-control" id="location" name="location" required value="<?php echo $locationValue; ?>">
                         </div>
     
                     </div>

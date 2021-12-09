@@ -60,12 +60,15 @@ class Database
         return $teachers;
     }
 
-    public function getClasses($id = null)
+    public function getClasses($id = null, $search = null)
     {
         if ($id == null) {
             $sql = "select c.id, c.name, c.location, c.teacher, t.name as tname from classes c left join teachers t on c.teacher = t.id ";
         } else {
             $sql = "select c.id, c.name, c.location, c.teacher, t.name as tname from classes c left join teachers t on c.teacher = t.id where c.id = $id";
+        }
+        if($search != null){
+            $sql = "select c.id, c.name, c.location, c.teacher, t.name as tname from classes c left join teachers t on c.teacher = t.id where c.name like '%" . $search ."%'";
         }
         $result = $this->conn->query($sql);
         $classes = [];
