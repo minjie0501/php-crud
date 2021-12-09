@@ -36,7 +36,7 @@ if ((isset($_GET['table']) && $_GET['table'] == 'classes') && (isset($_GET['id']
         ";
         if(count($students)>0){
             for ($i = 0; $i < count($students); $i++) {
-                echo "<strong><a href='details.php?table=students&id=" . $students[$i]['id'] . "'> " . $students[$i]['name'] . "</a></strong><br>";
+                echo "<strong><a href='details.php?table=students&id=" . $students[$i]['id'] . "'> " . $students[$i]['name'] . "</a><strong><br>";
             }
         }else{
             echo "<strong>No students available.</strong>";
