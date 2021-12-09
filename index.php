@@ -1,5 +1,10 @@
 <?php
+require('./Model/Connection.php');
+require('./Model/Env.php');
 
+
+$connection = new Connection;
+$test = $connection->createDb();
 ?>
 
 <!DOCTYPE html>
