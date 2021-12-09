@@ -25,11 +25,7 @@ class Database
 
 
   
-<<<<<<< HEAD
     public function getStudents($id = null,$search = null)
-=======
-    public function getStudents(int $id = null): array
->>>>>>> minjie
     {
         if ($id == null) {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s

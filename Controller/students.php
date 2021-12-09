@@ -59,8 +59,6 @@ function displayStudents($students)
             </tr>";
     }
 }
-<<<<<<< HEAD
-
 
 
 if(isset($_POST['search']) && $_POST['search']!=null){
@@ -72,5 +70,3 @@ if(isset($_POST['search']) && $_POST['search']!=null){
 
 
 ?>
-=======
->>>>>>> minjie
