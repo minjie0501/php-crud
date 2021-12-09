@@ -37,7 +37,7 @@ class Connection
             if ($link->query($sql)) {
                 echo "Database mySchool created successfully\n";
 
-                $conn = mysqli_connect(getenv('DATABASE_HOST'), getenv('DATABASE_USER'),  getenv('DATABASE_PASSWORD'), 'mySchool');
+                $conn = mysqli_connect(getenv('DATABASE_HOST'), getenv('DATABASE_USER'),  getenv('DATABASE_PASSWORD'), getenv('DATABASE_DBNAME'));
 
                 $sql = "CREATE TABLE teachers(
                     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
