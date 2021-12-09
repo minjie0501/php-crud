@@ -30,14 +30,14 @@ $test = $connection->createDb();
         <p>School</p>
     </div>
     <div class="main-container">
-        <form action="./View/classes.php">
-            <input class="a-main" type="submit" value="Classes" />
-        </form>
         <form action="./View/students.php">
             <input class="a-main" type="submit" value="Students" />
         </form>
         <form action="./View/teachers.php">
             <input class="a-main" type="submit" value="Teachers" />
+        </form>
+        <form action="./View/classes.php">
+            <input class="a-main" type="submit" value="Classes" />
         </form>
 
     </div>

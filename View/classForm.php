@@ -54,7 +54,7 @@ require('../Controller/classForm.php');
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <div class="form-row" style="text-align:center;display:block;margin:auto;">
-                                <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?>>
+                                <input class="btn btn-primary" type="submit" value="<?php echo $submitValue; ?>">
                             </div>
                         </div>
                     </div>

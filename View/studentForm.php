@@ -14,6 +14,7 @@ require('../Controller/studentForm.php');
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="styles/classes.css">
   <title>Document</title>
 </head>
 
@@ -53,7 +54,7 @@ require('../Controller/studentForm.php');
       </div>
       <div class="form-row" style="text-align:center;display:block;margin:auto;">
         <!-- <a href="../View/students-record.php" class="btn btn-primary" name="saveData" value=<?php echo $submitValue; ?> >Submit</a> -->
-        <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?>>
+        <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?> >
 
       </div>
   </form>

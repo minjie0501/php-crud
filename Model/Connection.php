@@ -58,8 +58,7 @@ class Connection
                     email VARCHAR(80) NOT NULL,
                     class INT UNSIGNED NOT NULL,
                     teacher int UNSIGNED NOT NULL,
-                    PRIMARY KEY (id),
-                    FOREIGN KEY (teacher) REFERENCES teachers (id)
+                    PRIMARY KEY (id)
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                 if ($conn->query($sql)) {
@@ -73,8 +72,7 @@ class Connection
                     name VARCHAR(50) NOT NULL,
                     location VARCHAR(80) NOT NULL,
                     teacher int UNSIGNED NOT NULL,
-                    PRIMARY KEY (id),
-                    FOREIGN KEY (teacher) REFERENCES teachers (id)
+                    PRIMARY KEY (id)
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                 if ($conn->query($sql)) {
@@ -83,33 +81,18 @@ class Connection
                     echo 'Error creating database: ';
                 }
 
-                $sql = "INSERT INTO teachers (name, email) VALUES ('John Doe', 'john@gmail.com');";
-                $conn->query($sql);
-                $sql = "INSERT INTO teachers (name, email) VALUES ('Sarah Close', 'sarah@gmail.com');";
-                $conn->query($sql);
-                $sql = "INSERT INTO teachers (name, email) VALUES ('James Wolf', 'james@outlook.com');";
+                $sql = "INSERT INTO teachers (name, email) VALUES ('John Doe', 'john@gmail.com'), ('Sarah Close', 'sarah@gmail.com'),('James Wolf', 'james@outlook.com');";
                 $conn->query($sql);
 
-                $sql = "INSERT INTO classes (name, location, teacher) VALUES ('Lamarr', 'Antwerpen', 1);";
-                $conn->query($sql);
-                $sql = "INSERT INTO classes (name, location, teacher) VALUES ('Giertz', 'Brussels', 2);";
-                $conn->query($sql);
-                $sql = "INSERT INTO classes (name, location, teacher) VALUES ('Theano', 'Leuven', 3);";
+                $sql = "INSERT INTO classes (name, location, teacher) VALUES ('Lamarr', 'Antwerpen', 1), ('Theano', 'Leuven', 3), ('Giertz', 'Brussels', 2);";
                 $conn->query($sql);
 
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Quin Amos', 'Quin@gmail.com', 1, 3);";
+                $sql = "INSERT INTO students (name, email, class, teacher) VALUES 
+                ('Quin Amos', 'Quin@gmail.com', 1, 3), ('Regena Milo', 'Regena@outlook.com', 2, 2),
+                ('Haze Beckett', 'Haze@gmail.com', 3, 1), ('Beryl Luana', 'Beryl@outlook.com', 1, 2),
+                ('Mabelle Jemmy', 'Mabelle@gmail.com', 2, 3),  ('Judie Philander', 'Judie@outlook.com', 3, 1);";
                 $conn->query($sql);
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Regena Milo', 'Regena@outlook.com', 2, 2);";
-                $conn->query($sql);
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Haze Beckett', 'Haze@gmail.com', 3, 1);";
-                $conn->query($sql);
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Beryl Luana', 'Beryl@outlook.com', 1, 2);";
-                $conn->query($sql);
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Mabelle Jemmy', 'Mabelle@gmail.com', 2, 3);";
-                $conn->query($sql);
-                $sql = "INSERT INTO students (name, email, class, teacher) VALUES ('Judie Philander', 'Judie@outlook.com', 3, 1);";
-                $conn->query($sql);
-
+                
             } else {
                 echo 'Error creating database: ';
             }
