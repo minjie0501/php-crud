@@ -28,6 +28,14 @@ if (isset($_SESSION['action'])) {
     }
 }
 
+
+
+if(isset($_POST['search']) && $_POST['search']!=null){
+    $teacher = $teachers->getTeachers(null, $_POST['search']);
+}else{
+    $teacher = $teachers->getTeachers();
+}
+
 $teacher = $teachers->getTeachers();
 
 function teacherTable($teacher)

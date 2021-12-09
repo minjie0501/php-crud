@@ -44,12 +44,15 @@ class Database
     }
 
 
-    public function getTeachers($id = null)
+    public function getTeachers($id = null, $search = null)
     {
         if ($id == null) {
             $sql = "select * from teachers";
         } else {
             $sql = "select * from teachers where id = $id";
+        }
+        if($search != null){
+            $sql = "select * from teachers where name like '%" . $search ."%'";
         }
         $result = $this->conn->query($sql);
         $teachers = [];
