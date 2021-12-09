@@ -24,38 +24,38 @@ require('../Controller/createTeacher.php');
     <?php include('includes/header.php'); ?>
     <div class="container">
         <!-- <div class="col-xs-6"> -->
-            <h1>
-                Add new teachers
-            </h1>
-            <form action="teachers.php" method="POST">
-                <input type='hidden' name='id' value=<?php echo $teacherId; ?>>
-                <div class="modal-body">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" required value=<?php echo $nameValue; ?>>
-                        </div>
-
+        <h1>
+            Add new teachers
+        </h1>
+        <form action="teachers.php" method="POST">
+            <input type='hidden' name='id' value=<?php echo $teacherId; ?>>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" class="form-control" required value="<?php echo $nameValue; ?>">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" class="form-control" required value=<?php echo $emailValue; ?>>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <div class="form-row" style="text-align:center;display:block;margin:auto;">
-                                <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?>>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
-            </form>
-            <!-- </div> -->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" class="form-control" required value=<?php echo $emailValue; ?>>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="form-row" style="text-align:center;display:block;margin:auto;">
+                            <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?>>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+        <!-- </div> -->
     </div>
 </body>
 

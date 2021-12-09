@@ -36,7 +36,6 @@ if(isset($_POST['search']) && $_POST['search']!=null){
     $teacher = $teachers->getTeachers();
 }
 
-$teacher = $teachers->getTeachers();
 
 function teacherTable($teacher)
 {

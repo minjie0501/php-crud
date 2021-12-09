@@ -49,11 +49,7 @@ class Database
     }
 
 
-<<<<<<< HEAD
-    public function getTeachers($id = null, $search = null)
-=======
-    public function getTeachers(int $id = null): array
->>>>>>> a87e473035cbe123f90a082ea44f1f06eda48690
+    public function getTeachers(int $id = null, string $search = null): array
     {
         if ($id == null) {
             $sql = "select * from teachers";
@@ -61,8 +57,10 @@ class Database
             $sql = "select * from teachers where id = $id";
         }
         if($search != null){
-            $sql = "select * from teachers where name like '%" . $search ."%'";
+            // $sql = "select * from teachers where name like '%" . $search ."%'";
+            $sql = "select t.id, t.name, t.email from teachers t where t.name like '%" . $search ."%'";
         }
+        var_dump($sql);
         $result = $this->conn->query($sql);
         $teachers = [];
 
@@ -176,9 +174,3 @@ class Database
         return $result;
     }
 }
-
-?>
-
-
-
-
