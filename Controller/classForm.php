@@ -30,7 +30,7 @@ if(isset($_GET['id'])){ //update class
     $_SESSION['action'] = "create";
 }
 
-function teacherOptions($teacherId, $conn){
+function teacherOptions($teacherId, $conn):void{
     $db = new Database($conn);
     $teachers = $db->getTeachers();
     for ($i=0; $i <count($teachers ) ; $i++) {

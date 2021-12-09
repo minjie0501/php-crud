@@ -39,7 +39,7 @@ if(isset($_POST['search']) && $_POST['search']!=null){
 
 
 
-function displayClasses($classes)
+function displayClasses($classes): void
 {
     for ($i = 0; $i < count($classes); $i++) {
         echo "
