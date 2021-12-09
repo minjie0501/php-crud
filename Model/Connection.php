@@ -28,7 +28,7 @@ class Connection
         }
 
         // Make my_db the current database
-        $db_selected = mysqli_select_db($link, 'mySchool');
+        $db_selected = mysqli_select_db($link, getenv('DATABASE_DBNAME'));
 
         if (!$db_selected) {
             // If we couldn't, then it either doesn't exist, or we can't see it.
