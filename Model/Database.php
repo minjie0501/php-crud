@@ -12,7 +12,7 @@ class Database
     }
 
 
-    public function getTableColumns($table): array{
+    public function getTableColumns(string $table): array{
         $sql = "DESCRIBE $table";
         $result = $this->conn->query($sql);
         $columns = [];
@@ -25,27 +25,27 @@ class Database
 
 
   
-    public function getStudents($id = null): array
+    public function getStudents(int $id = null): array
     {
         if ($id == null) {
-            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
-            left join teachers t on s.teacher = t.id ";
+            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s
+            left join teachers t on s.teacher = t.id left join classes c on c.id = s.class ";
         } else {
-            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
-            left join teachers t on s.teacher = t.id where s.id = $id";
+            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s
+            left join teachers t on s.teacher = t.id left left join classes c on c.id = s.class where s.id = $id";
         }
 
         $result = $this->conn->query($sql);
         $students = [];
         while ($row = $result->fetch_assoc()) {
-            $students[] = array("id" => $row['id'], "name" => $row['name'], "email" => $row['email'], "class" => $row['class'], "teacherId" => $row['teacher'], "teacherName" => $row['tname'], );
+            $students[] = array("id" => $row['id'], "name" => $row['name'], "email" => $row['email'], "class" => $row['class'], "teacherId" => $row['teacher'], "teacherName" => $row['tname'], 'className' => $row['cname'] );
         }
 
         return $students;
     }
 
 
-    public function getTeachers($id = null): array
+    public function getTeachers(int $id = null): array
     {
         if ($id == null) {
             $sql = "select * from teachers";
@@ -61,7 +61,7 @@ class Database
         return $teachers;
     }
 
-    public function getClasses($id = null, $search = null): array
+    public function getClasses(int $id = null, string $search = null): array
     {
         if ($id == null) {
             $sql = "select c.id, c.name, c.location, c.teacher, t.name as tname from classes c left join teachers t on c.teacher = t.id ";
@@ -78,7 +78,7 @@ class Database
         }
         return $classes;
     }
-    public function getStudentsOfClass($classId){
+    public function getStudentsOfClass(int $classId){
         $sql = "select id, name from students where class = $classId";
         $result = $this->conn->query($sql);
         $students = [];
@@ -88,7 +88,7 @@ class Database
         return $students;
     }
 
-    public function getStudentsOfTeacher($teacherId){
+    public function getStudentsOfTeacher(int $teacherId){
         $sql = "select id, name from students where teacher = $teacherId";
         $result = $this->conn->query($sql);
         $students = [];
@@ -98,14 +98,14 @@ class Database
         return $students;
     }
     
-    public function deleteById($table, $id)
+    public function deleteById(string $table,int $id)
     {
         $sql = "delete from $table where id = $id";
         $result = $this->conn->query($sql);
         return $result;
     }
 
-    public function insertStudent($student)
+    public function insertStudent(object $student)
     {
         $name=$student->getName();
         $email=$student->getEmail();
@@ -120,7 +120,7 @@ class Database
     }
 
 
-    public function insertClass($class)
+    public function insertClass(object $class)
     {
         $name=$class->getName();
         $location=$class->getLocation();
@@ -133,7 +133,7 @@ class Database
         return $result;
     }
 
-    public function insertTeacher($teacher)
+    public function insertTeacher(object $teacher)
     {
         $name=$teacher->getName();
         $email=$teacher->getEmail();
@@ -144,7 +144,7 @@ class Database
         return $result;
     }
 
-    public function update($table,$id,$values): void{
+    public function update(string $table,int $id,array $values): void{
         $columns = $this->getTableColumns($table);
         array_shift($columns);
 
@@ -159,7 +159,7 @@ class Database
         $result = $this->conn->query($sql);
     }
 
-    public function updateDeletedIds($table, $column,  $id){
+    public function updateDeletedIds(string $table,string $column,int $id){
         $sql = "UPDATE $table SET $column = 0 WHERE $column = $id";
         $result = $this->conn->query($sql);
         return $result;
