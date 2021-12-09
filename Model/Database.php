@@ -24,7 +24,7 @@ class Database
 
 
   
-    public function getStudents($id = null)
+    public function getStudents($id = null,$search = null)
     {
         if ($id == null) {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
@@ -32,6 +32,10 @@ class Database
         } else {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
             left join teachers t on s.teacher = t.id where s.id = $id";
+        }
+        if($search != null){
+            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
+            left join teachers t on s.teacher = t.id where s.name like '%" . $search ."%'";
         }
 
         $result = $this->conn->query($sql);

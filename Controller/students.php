@@ -59,4 +59,15 @@ function displayStudents($students){
     } 
     
 }
+
+
+
+if(isset($_POST['search']) && $_POST['search']!=null){
+    $students = $db->getStudents(null, $_POST['search']);
+}else{
+    $students = $db->getStudents();
+}
+
+
+
 ?>
