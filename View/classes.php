@@ -24,12 +24,12 @@ require('../Controller/classes.php'); ?>
   <?php include('includes/header.php'); ?>
   <div class="container">
     <div class="col-xs-6">
-      <h1 class="page-header">
+      <h1 class="page-header mb-5 mt-3">
         Classes
       </h1>
       <form action="classes.php" method="post">
         <input type="text" name="search">
-        <input type="submit" value="Search">
+        <input class="button btn btn-primary mb-1 btn-sm" type="submit" value="Search">
       </form>
       <table class="table table-bordered table-hover">
         <thead>
@@ -45,7 +45,7 @@ require('../Controller/classes.php'); ?>
           ?>
         </tbody>
       </table>
-      <a class="button btn btn-primary" href="classForm.php">Create new</a>
+      <a class="button btn btn-primary mt-5" href="classForm.php">Create new</a>
     </div>
   </div>
 

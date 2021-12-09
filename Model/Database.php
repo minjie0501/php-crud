@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types = 1);
+
 class Database
 {
-    public $conn;
+    public object $conn;
 
-    public function __construct($conn)
+    public function __construct(object $conn)
     {
-        // $this->conn = new mysqli("localhost", "root", "", "school");
         $this->conn = $conn;
     }
 
 
-    public function getTableColumns($table){
+    public function getTableColumns($table): array{
         $sql = "DESCRIBE $table";
         $result = $this->conn->query($sql);
         $columns = [];
@@ -24,7 +25,7 @@ class Database
 
 
   
-    public function getStudents($id = null)
+    public function getStudents($id = null): array
     {
         if ($id == null) {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
@@ -44,7 +45,7 @@ class Database
     }
 
 
-    public function getTeachers($id = null)
+    public function getTeachers($id = null): array
     {
         if ($id == null) {
             $sql = "select * from teachers";
@@ -60,7 +61,7 @@ class Database
         return $teachers;
     }
 
-    public function getClasses($id = null, $search = null)
+    public function getClasses($id = null, $search = null): array
     {
         if ($id == null) {
             $sql = "select c.id, c.name, c.location, c.teacher, t.name as tname from classes c left join teachers t on c.teacher = t.id ";
@@ -139,16 +140,14 @@ class Database
 
         $sql = "INSERT INTO teachers (name, email)
         VALUES ('$name', '$email');";
-        // var_dump($sql);
         $result = $this->conn->query($sql);
         return $result;
     }
 
-    public function update($table,$id,$values){
+    public function update($table,$id,$values): void{
         $columns = $this->getTableColumns($table);
         array_shift($columns);
 
-        // var_dump($values);
         $columnsString = "";
         for ($i=0; $i < count($columns); $i++) { 
             $columnsString .= $columns[$i] . "='" . $values[$i] . "', ";
