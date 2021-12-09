@@ -50,7 +50,7 @@ function teacherTable($teacher)
                     <input type='hidden' name='id' value=" . $teacher[$i]['id'] . ">
                     <input type='hidden' name='name' value=" . $teacher[$i]['name'] . ">
                     <input type='hidden' name='table' value='teachers'>
-                    <input class='btn btn btn-primary' type='submit' name='submit' value='Delete'>
+                    <input class='btn btn-danger' type='submit' name='submit' value='Delete'>
                 </form>
             </td>";
         echo "</tr>";
