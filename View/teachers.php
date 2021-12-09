@@ -28,7 +28,10 @@ include "../Controller/teachers.php";
             <h1 class="page-header">
                 Teachers
             </h1>
-
+            <form action="classes.php" method="post">
+                <input type="text" name="search">
+                <input type="submit" value="Search">
+            </form>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
