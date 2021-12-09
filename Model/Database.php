@@ -60,7 +60,6 @@ class Database
             // $sql = "select * from teachers where name like '%" . $search ."%'";
             $sql = "select t.id, t.name, t.email from teachers t where t.name like '%" . $search ."%'";
         }
-        var_dump($sql);
         $result = $this->conn->query($sql);
         $teachers = [];
 
