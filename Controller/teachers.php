@@ -37,20 +37,20 @@ function teacherTable($teacher)
         $teacherEmail = $teacher[$i]['email'];
         echo "<tr>";
         // echo"<td>{$teacherId}</td>";
-        echo "<td><a href='../View/details.php?table=teachers&id=" . $teacher[$i]['id']."'>" . $teacherName . "</a></td>";
+        echo "<td><a href='../View/details.php?table=teachers&id=" . $teacher[$i]['id'] . "'>" . $teacherName . "</a></td>";
 
         // <td><a href='../View/details.php?table=teachers&id=" . $classes[$i]['teacherId']. "'>" . $classes[$i]['teacherName'] . "</a></td>
 
         echo "<td>{$teacherEmail}</td>";
         echo "<td>
-                <a class='button btn btn-info' href='../View/createTeacher.php?id=" . $teacher[$i]['id'] . "'>Edit</a>
+                <a class='button btn btn btn-primary' href='../View/createTeacher.php?id=" . $teacher[$i]['id'] . "'>Edit</a>
             </td>";
         echo "<td>
                 <form action='delete.php' method='post'>
                     <input type='hidden' name='id' value=" . $teacher[$i]['id'] . ">
                     <input type='hidden' name='name' value=" . $teacher[$i]['name'] . ">
                     <input type='hidden' name='table' value='teachers'>
-                    <input class='btn btn-danger' type='submit' name='submit' value='X'>
+                    <input class='btn btn btn-primary' type='submit' name='submit' value='Delete'>
                 </form>
             </td>";
         echo "</tr>";

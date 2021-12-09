@@ -58,8 +58,13 @@ require('../Controller/classForm.php');
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     </div>
             </form>
+=======
+                </div>
+        </form>
+>>>>>>> shreejan
     </div>
 
 </body>
