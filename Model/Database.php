@@ -32,11 +32,11 @@ class Database
             left join teachers t on s.teacher = t.id left join classes c on c.id = s.class ";
         } else {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s
-            left join teachers t on s.teacher = t.id left left join classes c on c.id = s.class where s.id = $id";
+            left join teachers t on s.teacher = t.id left join classes c on c.id = s.class where s.id = $id";
         }
         if($search != null){
-            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname from students as s
-            left join teachers t on s.teacher = t.id where s.name like '%" . $search ."%'";
+            $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s
+            left join teachers t on s.teacher = t.id left join classes c on c.id = s.class where s.name like '%" . $search ."%'";
         }
 
         $result = $this->conn->query($sql);

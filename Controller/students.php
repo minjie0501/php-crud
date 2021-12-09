@@ -66,7 +66,3 @@ if(isset($_POST['search']) && $_POST['search']!=null){
 }else{
     $students = $db->getStudents();
 }
-
-
-
-?>
