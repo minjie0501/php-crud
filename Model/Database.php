@@ -25,7 +25,7 @@ class Database
 
 
   
-    public function getStudents($id = null,$search = null)
+    public function getStudents($id = null,$search = null):array
     {
         if ($id == null) {
             $sql = "select s.id, s.name, s.email, s.class,  s.teacher , t.name as tname, c.name as cname from students as s
@@ -82,7 +82,7 @@ class Database
         }
         return $classes;
     }
-    public function getStudentsOfClass(int $classId){
+    public function getStudentsOfClass(int $classId):array{
         $sql = "select id, name from students where class = $classId";
         $result = $this->conn->query($sql);
         $students = [];
@@ -92,7 +92,7 @@ class Database
         return $students;
     }
 
-    public function getStudentsOfTeacher(int $teacherId){
+    public function getStudentsOfTeacher(int $teacherId):array{
         $sql = "select id, name from students where teacher = $teacherId";
         $result = $this->conn->query($sql);
         $students = [];
@@ -102,14 +102,14 @@ class Database
         return $students;
     }
     
-    public function deleteById(string $table,int $id)
+    public function deleteById(string $table,int $id):bool
     {
         $sql = "delete from $table where id = $id";
         $result = $this->conn->query($sql);
         return $result;
     }
 
-    public function insertStudent(object $student)
+    public function insertStudent(object $student):bool
     {
         $name=$student->getName();
         $email=$student->getEmail();
@@ -124,7 +124,7 @@ class Database
     }
 
 
-    public function insertClass(object $class)
+    public function insertClass(object $class):bool
     {
         $name=$class->getName();
         $location=$class->getLocation();
@@ -137,7 +137,7 @@ class Database
         return $result;
     }
 
-    public function insertTeacher(object $teacher)
+    public function insertTeacher(object $teacher):bool
     {
         $name=$teacher->getName();
         $email=$teacher->getEmail();
@@ -163,7 +163,7 @@ class Database
         $result = $this->conn->query($sql);
     }
 
-    public function updateDeletedIds(string $table,string $column,int $id){
+    public function updateDeletedIds(string $table,string $column,int $id):bool{
         $sql = "UPDATE $table SET $column = 0 WHERE $column = $id";
         $result = $this->conn->query($sql);
         return $result;

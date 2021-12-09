@@ -22,7 +22,7 @@ function deleteBtn($table, $name){
 
 //render class
 if ((isset($_GET['table']) && $_GET['table'] == 'classes') && (isset($_GET['id']))) {
-    function renderPage($db)
+    function renderPage($db):void
     {
         echo "<h1> Class information</h1>";
         $class = $db->getClasses($_GET['id'])[0];
@@ -45,7 +45,7 @@ if ((isset($_GET['table']) && $_GET['table'] == 'classes') && (isset($_GET['id']
     }
 } //render student
 else if ((isset($_GET['table']) && $_GET['table'] == 'students') && (isset($_GET['id']))) {
-    function renderPage($db)
+    function renderPage($db):void
     {
         echo "<h1> Student information</h1>";
         $student = $db->getStudents($_GET['id'])[0];
@@ -63,7 +63,7 @@ else if ((isset($_GET['table']) && $_GET['table'] == 'students') && (isset($_GET
     }
 } //render teacher
 else if((isset($_GET['table']) && $_GET['table'] == 'teachers') && (isset($_GET['id']))){
-    function renderPage($db)
+    function renderPage($db):void
     {
         echo "<h1> Teacher information</h1>";
         $teacher = $db->getTeachers($_GET['id'])[0];

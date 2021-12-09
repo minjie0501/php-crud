@@ -17,7 +17,7 @@ class Connection
         }
     }
 
-    public function createDb()
+    public function createDb():void
     {
         (new DotEnv(dirname(__DIR__, 1) . '/.env'))->load();
 
@@ -47,7 +47,7 @@ class Connection
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                 if ($conn->query($sql) === TRUE) {
-                    echo "Table MyGuests created successfully";
+                    // echo "Table MyGuests created successfully";
                 } else {
                     echo "Error creating table: " . $conn->error;
                 }
@@ -62,7 +62,7 @@ class Connection
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                 if ($conn->query($sql)) {
-                    echo "table students created successfully\n";
+                    // echo "table students created successfully\n";
                 } else {
                     echo 'Error creating database: ' . $conn->error;
                 }
@@ -76,7 +76,7 @@ class Connection
                     )ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
                 if ($conn->query($sql)) {
-                    echo "Database my_db created successfully\n";
+                    // echo "Database my_db created successfully\n";
                 } else {
                     echo 'Error creating database: ';
                 }
