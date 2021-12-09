@@ -57,9 +57,6 @@ require('../Controller/classForm.php');
                         </div>
                     </div>
                 </div>
-
-
-
         </form>
     </div>
 
