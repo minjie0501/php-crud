@@ -2,18 +2,17 @@
 
 class Connection
 {
-    public function connectDB()
+    public function connectDb()
     {
         (new DotEnv(dirname(__DIR__, 1) . '/.env'))->load();
 
-        $conn = new mysqli(getenv('DATABASE_HOST'), getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD'), getenv('DATABASE_DBNAME'));
-
-        // Check connection 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } else {
-            // echo "Connected successfully";
-            return $conn;
+        try {
+            $dsn = "mysql:host=" . getenv('DATABASE_HOST') . ";dbname=" . getenv('DATABASE_DBNAME') . ";";
+            $pdo = new PDO($dsn,getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD'));
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
         }
     }
 

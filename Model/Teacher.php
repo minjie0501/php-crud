@@ -1,28 +1,25 @@
 <?php
+declare(strict_types = 1);
 
 class Teacher{
-    private $name;
-    private $email;
-    private $allStudents;
+    private string $name;
+    private string $email;
 
-    function __construct($name, $email)
+    function __construct(string $name,string $email)
     {
         $this->name = $name;
         $this->email= $email;
-        // $this->allStudents = $allStudents;
     }
 
-    public function getName(){
+    public function getName(): string{
         return $this->name;
     }
 
-    public function getEmail(){
+    public function getEmail(): string{
         return $this->email;
     }
 
-    public function getAllStudents(){
-        return $this->allStudents;
-    }
+
 }
 
 ?>

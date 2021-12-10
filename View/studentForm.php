@@ -1,66 +1,67 @@
-<?php
-// require_once ('../Model/Database.php');
-require('../Controller/studentForm.php');
-// insert record into student table
-?>
+<?php include('includes/header.php'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <h1><?php echo $submitValue; ?> a student</h1>
+    <form action="index.php?page=students" method="POST">
+        <input type='hidden' name='id' value=<?php echo $studentId; ?>>
+        <!-- <input type='hidden' name='teacherId' value=<?php echo $teacherId; ?>> -->
+        <div class="modal-body">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required value="<?php echo $nameValue; ?>">
+                </div>
+            </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="styles/classes.css">
-  <title>Document</title>
-</head>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" required value="<?php echo $emailValue; ?>">
+                </div>
 
-<body>
-  <?php include('includes/header.php'); ?>
-
-  <h3 style="text-align:center;margin-top:10px;">Students Record</h3>
-  <form action="students.php" method="POST">
-    <input type="hidden" name="studentId" value=<?php echo $studentId; ?>>
-    <div class="modal-body">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required value=<?php echo $nameValue; ?>>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="classes">Class: </label>
+                    <select class="form-select" name="classes" id="classes">
+                        <?php
+                        foreach ($classes as $class) {
+                            if ($class['id'] == $classId) {
+                                echo "<option value={$class['id']} selected>{$class['name']}</option>";
+                            } else {
+                                echo "<option value={$class['id']}>{$class['name']}</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="teachers">Teacher: </label>
+                    <select class="form-select" name="teachers" id="teachers">
+                        <?php
+                        foreach ($teachers as $teacher) {
+                            if ($teacher['id'] == $teacherId) {
+                                echo "<option value={$teacher['id']} selected>{$teacher['name']}</option>";
+                            } else {
+                                echo "<option value={$teacher['id']}>{$teacher['name']}</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <div class="form-row" style="text-align:center;display:block;margin:auto;">
+                        <input class="btn btn-primary" type="submit" name="action" value="<?php echo $submitValue; ?>">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group col-md-6">
-          <label for="email">Email Address</label>
-          <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" required value=<?php echo $emailValue; ?>>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="className">Your Class Name</label>
-          <select name="className" id="className" class="form-control" aria-describedby="emailHelp" Required>
-            <?php classOptions($classId, $conn); ?>
-          </select>
-          <!-- <input type="text" class="form-control" id="className" name="className" aria-describedby="emailHelp" required value=<?php echo $classId; ?> -->
+    </form>
+</div>
 
-        </div>
-        <div class="form-group col-md-6">
-          <label for="teacher">Teacher</label>
-          <select name="teacher" id="teacher" class="form-control" aria-describedby="emailHelp" Required>
-            <?php teacherOptions($teacherId, $conn); ?>
-          </select>
-          <!-- <input type="text" class="form-control" id="teacher" name="teacher" aria-describedby="emailHelp" Required value=<?php echo $teacherId; ?>> -->
-        </div>
-      </div>
-      <div class="form-row" style="text-align:center;display:block;margin:auto;">
-        <!-- <a href="../View/students-record.php" class="btn btn-primary" name="saveData" value=<?php echo $submitValue; ?> >Submit</a> -->
-        <input class="btn btn-primary" type="submit" value=<?php echo $submitValue; ?> >
 
-      </div>
-  </form>
-  </div>
-  </div>
-  </div>
-</body>
-
-</html>
+<?php include('includes/footer.php'); ?>
